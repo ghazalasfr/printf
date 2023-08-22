@@ -22,29 +22,19 @@ int _printf(const char *format, ...)
 		if (*format == '%')
 		{
 			format++;
-			if (*format == '\0')
+			if (*format == '\0' || *format == ' ')
 				break;
 
 			if (*format == 'c')
-			{
-				int c = va_arg(args, int);
-
-				count += print_character(c);
-			}
+				count += handle_c(args);
 			else if (*format == 's')
-			{
-				char *str = va_arg(args, char *);
-
-				count += print_string(str);
-			}
+				count += handle_s(args);
 			else if (*format == '%')
-			{
-				count += print_character('%');
-			}
+				count += print_char('%');
 		}
 		else
 		{
-			count += print_character(*format);
+			count += print_char(*format);
 		}
 		format++;
 	}

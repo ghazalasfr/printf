@@ -6,8 +6,10 @@
 
 int _printf(const char *format, ...);
 
-/* MORE  FUNCTIONS FOR THE MAIN PROGRAM */
-int print_character(char c);
+/* HELPER FUNCTIONS */
+int print_char(char c);
 int print_string(char *str);
+int handle_s(va_list args);
+int handle_c(va_list args);
 
 #endif
